@@ -20,6 +20,8 @@ html {
 .welcome__subtitle {
   margin: 30px 0;
   color: white;
+
+  font-size: 0.8em;
 }
 
 .welcome__enter {
@@ -38,4 +40,16 @@ html {
   color: black;
 
   cursor: pointer;
+}
+
+.welcome__strategy {
+  color: #c01818;
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.welcome__strategy:hover {
+  color: black;
+  /* text-shadow: 0 0 3px black; */
 }
