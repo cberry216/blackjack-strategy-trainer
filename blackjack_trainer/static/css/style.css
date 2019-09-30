@@ -71,7 +71,7 @@ body {
   pointer-events: none;
 }
 
-.dim--active {
+.dim--open {
   opacity: 0.25;
   transition: 0.2s;
 }
@@ -83,4 +83,14 @@ body {
   height: 100vh;
   top: -100vh;
   left: 0;
+  transition: 0.2s;
+}
+
+.bjbs--open {
+  top: 0;
+  transition: 0.2s;
+}
+
+.bjbs__table {
+  width: 
 }
