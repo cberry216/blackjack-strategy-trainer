@@ -1,3 +1,41 @@
-* {
-  background-color: cyan;
+html {
+  background-color: #045825;
+}
+
+.welcome {
+  margin-top: 15%;
+
+  font-family: "Bodoni MT Black", serif;
+  text-align: center;
+}
+
+.welcome__title {
+  margin: 30px 0;
+  color:white;
+
+  font-size: 3em;
+  letter-spacing: -2px;
+}
+
+.welcome__subtitle {
+  margin: 30px 0;
+  color: white;
+}
+
+.welcome__enter {
+  margin: 50px 0;
+  padding: 5px 10px;
+  width: 10vw;
+  color: white;
+  border: 1px solid white;
+  border-radius: 3px;
+
+  font-size: 2em;
+}
+
+.welcome__enter:hover {
+  background-color: #c01818;
+  color: black;
+
+  cursor: pointer;
 }
