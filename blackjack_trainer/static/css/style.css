@@ -72,12 +72,12 @@ body {
 }
 
 .dim--open {
-  opacity: 0.25;
+  opacity: 0.3;
   transition: 0.2s;
+  pointer-events: auto;
 }
 
 .bjbs {
-  background-color: cyan;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -91,6 +91,20 @@ body {
   transition: 0.2s;
 }
 
+.bjbs__close {
+  position: absolute;
+  margin: 0;
+  top: 5px;
+  right: 5px;
+  color: #c01818;
+
+  cursor: pointer;
+
+  font-size: 3em;
+}
+
 .bjbs__table {
-  width: 
+  width: 35vw;
+  height: auto;
+  margin: 5vh calc(65vw/2);
 }
