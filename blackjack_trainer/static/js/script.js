@@ -13,6 +13,7 @@ function bjbs_modal() {
     if (!e) var e = window.event;
     e.cancelBubble = true;
     if (e.stopPropagation) e.stopPropagation();
+    
     dim_screen.classList.toggle('dim--open');
     bjbs_modal.classList.toggle('bjbs--open');
   })
