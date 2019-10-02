@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="table">
+  <span class="table__bjbs"><i class="fas fa-atlas"></i></span>
+  <div class="table__cards">
+    <div class="table__player dealer">
+      <div class="dealer__downcard"></div>
+      <div class="dealer__upcard"></div>
+      <div class="dealer__description"></div>
+    </div>
+    <div class="table__player user">
+      <div class="user__card1"></div>
+      <div class="user__card2"></div>
+      <div class="user__description"></div>
+    </div>
+  </div>
+  <div class="table__moves">
+    <div class="table__stats"></div>
+    <div class="move stand">
+      <img src="{% static 'img/move_stand.png' %}" alt="Stand" class="move__image">
+      <button class="move__button">Stand</button>
+    </div>
+    <div class="move hit">
+      <img src="{% static 'img/move_hit.png' %}" alt="Hit" class="move__image">
+      <button class="move__button">Hit</button>
+    </div>
+    <div class="move double">
+      <img src="{% static 'img/move_doubledown.png' %}" alt="Double Down" class="move__image">
+      <button class="move__button">Double Down</button></div>
+    <div class="move split">
+      <img src="{% static 'img/move_split.png' %}" alt="Split" class="move__image">
+      <button class="move__button">Split</button>
+    </div>
+  </div>
+</div>
+<div class="dim"></div>
+<div class="bjbs">
+  <span class="bjbs__close">&times;</span>
+  <img class="bjbs__table" src="{% static 'img/blackjack-strategy.png' %}" alt="Blackjack Basic Strategy Guide">
+</div>
+{% endblock content %}
