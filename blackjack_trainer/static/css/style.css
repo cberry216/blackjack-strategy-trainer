@@ -81,9 +81,13 @@ body {
 	position: absolute;
 	width: 100vw;
 	height: 100vh;
-	top: -100vh;
+	top: -200vh;
 	left: 0;
 	transition: 0.2s;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .bjbs--open {
@@ -105,9 +109,8 @@ body {
 }
 
 .bjbs__table {
-	width: 35vw;
-	height: auto;
-	margin: 5vh calc(65vw / 2);
+	width: auto;
+	height: 85vh;
 }
 
 .table {
@@ -200,6 +203,20 @@ body {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.stats {
+	color: white;
+
+	font-size: 2em;
+	font-family: 'Bodoni MT Black', serif;
+
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .move {
