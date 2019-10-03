@@ -2,40 +2,43 @@
 {% load static %}
 
 {% block content %}
+<span class="dev-answer" style="display: none"></span>
 <div class="table">
   <span class="table__bjbs"><i class="fas fa-atlas"></i></span>
   <div class="table__cards">
     <div class="table__player dealer">
-      <div class="dealer__downcard"></div>
-      <div class="dealer__upcard"></div>
-      <div class="dealer__description"></div>
+      <div class="dealer__cards"></div>
+      <div class="dealer__description">
+        <span class="dealer__text"></span>
+      </div>
     </div>
     <div class="table__player user">
-      <div class="user__card1"></div>
-      <div class="user__card2"></div>
-      <div class="user__description"></div>
+      <div class="user__cards"></div>
+      <div class="user__description">
+        <span class="user__text"></span>
+      </div>
     </div>
   </div>
   <div class="table__moves">
     <div class="stats">
       <span class="stats__correct">0</span>
       <span class="stats__slash"> / </span>
-      <span class="total">0</span>
+      <span class="stats__total">0</span>
     </div>
     <div class="move stand">
       <img src="{% static 'img/move_stand.png' %}" alt="Stand" class="move__image">
-      <button class="move__button">Stand</button>
+      <button class="move__button move__stand">Stand</button>
     </div>
     <div class="move hit">
       <img src="{% static 'img/move_hit.png' %}" alt="Hit" class="move__image">
-      <button class="move__button">Hit</button>
+      <button class="move__button move__hit">Hit</button>
     </div>
     <div class="move double">
       <img src="{% static 'img/move_doubledown.png' %}" alt="Double Down" class="move__image">
-      <button class="move__button">Double Down</button></div>
+      <button class="move__button move__double">Double Down</button></div>
     <div class="move split">
       <img src="{% static 'img/move_split.png' %}" alt="Split" class="move__image">
-      <button class="move__button">Split</button>
+      <button class="move__button move__split">Split</button>
     </div>
   </div>
 </div>
@@ -44,4 +47,6 @@
   <span class="bjbs__close">&times;</span>
   <img class="bjbs__table" src="{% static 'img/blackjack-strategy.png' %}" alt="Blackjack Basic Strategy Guide">
 </div>
+<script src="{% static 'js/dealer.js' %}"></script>
+<script>main();</script>
 {% endblock content %}
