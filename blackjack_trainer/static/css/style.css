@@ -145,9 +145,9 @@ body {
 	color: #c01818;
 }
 
-.table__pairs--enabled:hover {
+/* .table__pairs--enabled:hover {
 	color: white;
-}
+} */
 
 .table__pairs:hover {
 	color: #c01818;
@@ -171,13 +171,13 @@ body {
 	cursor: pointer;
 }
 
-.table__aces--enable {
+.table__aces--enabled {
 	color: red;
 }
 
-.table__aces--enable:hover {
+/* .table__aces--enabled:hover {
 	color: white;
-}
+} */
 
 .table__bjbs:hover {
 	color: #c01818;
