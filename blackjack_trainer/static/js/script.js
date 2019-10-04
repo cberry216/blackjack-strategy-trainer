@@ -22,12 +22,11 @@ function bjbs_modal() {
     dim_screen.classList.toggle('dim--open');
     bjbs_modal.classList.toggle('bjbs--open');
   })
-
-
 }
 
 function run() {
   bjbs_modal();
+  toggle_pairs_only();
 }
 
 window.onload = run
