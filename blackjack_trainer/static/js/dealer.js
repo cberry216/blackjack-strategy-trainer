@@ -189,9 +189,14 @@ function update_stats(win_or_lose) {
 
 let ran = false;
 let guessed_wrong = false;
+let pairs_only = false;
+let aces_only = false;
 
 function play_game() {
-  guessed_wrong = false;
+  console.log('ran:\t' + ran);
+  console.log('guessed_wrong:\t' + guessed_wrong);
+  console.log('pairs_only:\t' + pairs_only);
+  console.log('aces_only:\t' + aces_only);
 
   user_cards = document.querySelector('.user__cards');
   dealer_cards = document.querySelector('.dealer__cards');
@@ -202,6 +207,19 @@ function play_game() {
   dealer = get_random_card();
   card1 = get_random_card();
   card2 = get_random_card();
+  if(card1.value + card2.value == 21) {
+    while(card1.value >= 10) card1 = get_random_card();
+  }
+  if(pairs_only) card2 = card1;
+  if(aces_only) {
+    if(card1.value == 11) {
+      while(card2.value == 10) card2 = get_random_card();
+    } else if(card1.value == 10) {
+      if(card2.value == 11) {
+        while(card1.value == 10) card1 = get_random_card();
+      }
+    }
+  }
 
   // dealer = cards[4];
   // card1 = cards[5];
@@ -258,6 +276,16 @@ function guess(move) {
 
 }
 
+function toggle_pairs_only() {
+  if(aces_only) aces_only = !aces_only;
+  pairs_only = !pairs_only;
+}
+
+function toggle_aces_only() {
+  if(pairs_only) pairs_only = !pairs_only;
+  aces_only = !aces_only;
+}
+
 function add_guess_button_eventlisteners() {
   stand_button = document.querySelector('.move__stand');
   stand_button.addEventListener('click', ()=>{guess(moves.stand)})
@@ -272,7 +300,30 @@ function add_guess_button_eventlisteners() {
   split_button.addEventListener('click', () => { guess(moves.split) })
 }
 
+function add_pairs_only_eventlistener() {
+  dom_pairs_only = document.getElementsByClassName('table__pairs')[0];
+  dom_aces_only = document.getElementsByClassName('table__aces')[0];
+  dom_pairs_only.addEventListener('click', () => {
+    toggle_pairs_only();
+    console.log(dom_pairs_only);
+    dom_pairs_only.classList.toggle('table__pairs--enabled');
+    if(aces_only) dom_aces_only.classList.toggle('table__aces--enable');
+  }, false);
+}
+
+function add_aces_only_eventlistener() {
+  dom_aces_only = document.getElementsByClassName('table__aces')[0];
+  dom_pairs_only = document.getElementsByClassName('table__pairs')[0];
+  dom_aces_only.addEventListener('click', () => {
+    toggle_aces_only();
+    dom_aces_only.classList.toggle('table__aces--enable');
+    if(pairs_only) dom_pairs_only.classList.toggle('table__pairs--enabled');
+  }, false);
+}
+
 function main() {
   add_guess_button_eventlisteners();
+  add_pairs_only_eventlistener();
+  add_aces_only_eventlistener();
   play_game();
 }
