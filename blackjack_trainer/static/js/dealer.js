@@ -173,7 +173,6 @@ function clear_table() {
   user_cards.removeChild(user_card1);
   user_cards.removeChild(user_card2);
   dealer_cards.removeChild(dealer_card);
-  run();
 }
 
 function update_stats(win_or_lose) {
@@ -269,20 +268,20 @@ function guess(move) {
     update_stats('lose');
   } else {
     clear_table();
-    play_game();
     if(!guessed_wrong) update_stats('win');
     else update_stats('lose');
+    play_game();
   }
 
 }
 
 function toggle_pairs_only() {
-  if(aces_only) aces_only = !aces_only;
+  if(aces_only && !pairs_only) aces_only = !aces_only;
   pairs_only = !pairs_only;
 }
 
 function toggle_aces_only() {
-  if(pairs_only) pairs_only = !pairs_only;
+  if(pairs_only && !aces_only) pairs_only = !pairs_only;
   aces_only = !aces_only;
 }
 
