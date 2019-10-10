@@ -25,7 +25,7 @@ SECRET_KEY = '5-v(nsstss0-*!1%v=!dbmck9cvbsx=2#+xx^y=_88g-z-w$g4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
