@@ -1,1 +1,1 @@
-web: gunicorn blackjack_trainer.wsgi.py
+web: gunicorn blackjack_trainer.blackjack_trainer.wsgi.py
