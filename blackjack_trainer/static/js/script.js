@@ -26,7 +26,6 @@ function bjbs_modal() {
 
 function run() {
   bjbs_modal();
-  toggle_pairs_only();
 }
 
 window.onload = run
