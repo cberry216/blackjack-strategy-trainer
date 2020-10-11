@@ -60,88 +60,522 @@ const moves = {
   "split": "split"
 }
 
+const hard_solution_matrix = {
+  '5': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.hit,
+    '5': moves.hit,
+    '6': moves.hit,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '6': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.hit,
+    '5': moves.hit,
+    '6': moves.hit,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '7': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.hit,
+    '5': moves.hit,
+    '6': moves.hit,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '8': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.hit,
+    '5': moves.hit,
+    '6': moves.hit,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '9': {
+    '2': moves.hit,
+    '3': moves.double,
+    '4': moves.double,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '10': {
+    '2': moves.double,
+    '3': moves.double,
+    '4': moves.double,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.double,
+    '8': moves.double,
+    '9': moves.double,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '11': {
+    '2': moves.double,
+    '3': moves.double,
+    '4': moves.double,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.double,
+    '8': moves.double,
+    '9': moves.double,
+    '10': moves.double,
+    '11': moves.hit,
+  },
+  '12': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '13': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '14': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '15': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '16': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '17': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.stand,
+    '8': moves.stand,
+    '9': moves.stand,
+    '10': moves.stand,
+    '11': moves.stand,
+  },
+  '18': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.stand,
+    '8': moves.stand,
+    '9': moves.stand,
+    '10': moves.stand,
+    '11': moves.stand,
+  },
+  '19': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.stand,
+    '8': moves.stand,
+    '9': moves.stand,
+    '10': moves.stand,
+    '11': moves.stand,
+  },
+  '20': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.stand,
+    '8': moves.stand,
+    '9': moves.stand,
+    '10': moves.stand,
+    '11': moves.stand,
+  },
+}
+
+const soft_solution_matrix = {
+  '2': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.hit,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '3': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.hit,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '4': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.double,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '5': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.double,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '6': {
+    '2': moves.hit,
+    '3': moves.double,
+    '4': moves.double,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '7': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.stand,
+    '8': moves.stand,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '8': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.stand,
+    '8': moves.stand,
+    '9': moves.stand,
+    '10': moves.stand,
+    '11': moves.stand,
+  },
+  '9': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.stand,
+    '8': moves.stand,
+    '9': moves.stand,
+    '10': moves.stand,
+    '11': moves.stand,
+  }
+}
+
+const pairs_solution_matrix = {
+  '2': {
+    '2': moves.split,
+    '3': moves.split,
+    '4': moves.split,
+    '5': moves.split,
+    '6': moves.split,
+    '7': moves.split,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '3': {
+    '2': moves.split,
+    '3': moves.split,
+    '4': moves.split,
+    '5': moves.split,
+    '6': moves.split,
+    '7': moves.split,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '4': {
+    '2': moves.hit,
+    '3': moves.hit,
+    '4': moves.hit,
+    '5': moves.split,
+    '6': moves.split,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '5': {
+    '2': moves.double,
+    '3': moves.double,
+    '4': moves.double,
+    '5': moves.double,
+    '6': moves.double,
+    '7': moves.double,
+    '8': moves.double,
+    '9': moves.double,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '6': {
+    '2': moves.split,
+    '3': moves.split,
+    '4': moves.split,
+    '5': moves.split,
+    '6': moves.split,
+    '7': moves.hit,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '7': {
+    '2': moves.split,
+    '3': moves.split,
+    '4': moves.split,
+    '5': moves.split,
+    '6': moves.split,
+    '7': moves.split,
+    '8': moves.hit,
+    '9': moves.hit,
+    '10': moves.hit,
+    '11': moves.hit,
+  },
+  '8': {
+    '2': moves.split,
+    '3': moves.split,
+    '4': moves.split,
+    '5': moves.split,
+    '6': moves.split,
+    '7': moves.split,
+    '8': moves.split,
+    '9': moves.split,
+    '10': moves.split,
+    '11': moves.split,
+  },
+  '9': {
+    '2': moves.split,
+    '3': moves.split,
+    '4': moves.split,
+    '5': moves.split,
+    '6': moves.split,
+    '7': moves.stand,
+    '8': moves.split,
+    '9': moves.split,
+    '10': moves.stand,
+    '11': moves.stand,
+  },
+  '10': {
+    '2': moves.stand,
+    '3': moves.stand,
+    '4': moves.stand,
+    '5': moves.stand,
+    '6': moves.stand,
+    '7': moves.stand,
+    '8': moves.stand,
+    '9': moves.stand,
+    '10': moves.stand,
+    '11': moves.stand,
+  },
+  '11': {
+    '2': moves.split,
+    '3': moves.split,
+    '4': moves.split,
+    '5': moves.split,
+    '6': moves.split,
+    '7': moves.split,
+    '8': moves.split,
+    '9': moves.split,
+    '10': moves.split,
+    '11': moves.split,
+  },
+
+}
+
 function get_random_card() {
-  random_index = Math.floor(Math.random() * 52);
+  let random_index = Math.floor(Math.random() * 52);
   return cards[random_index];
 }
 
+function get_random_ace() {
+  let ace_index = [12,25,38,51]
+  let random_index = Math.floor(Math.random() * 4);
+  return cards[ace_index[random_index]];
+}
+
+function get_random_non_10() {
+  let nonace_index=[0,1,2,3,4,5,6,7,13,14,15,16,17,18,19,20,26,27,28,29,30,31,32,33,39,40,41,42,43,44,45,46]
+  let random_index = Math.floor(Math.random() * nonace_index.length);
+  return cards[nonace_index[random_index]]
+}
+
 function get_correct_response(dealer, card1, card2) {
-  if(card1.card == card2.card) {
-    if (card1.card == 'A' || card1.card == '8') return moves.split;
-    else if (card1.value == 10) return moves.stand;
-    else if(card1.value == 9) {
-      if(dealer.value == 7 || dealer.value >= 10) return moves.stand;
-      else return moves.split
-    }
-    else if(card1.value == 7) {
-      if(dealer.value >= 8) return moves.stand;
-      else return moves.split;
-    }
-    else if(card1.value == 6) {
-      if(dealer.value >= 7) return moves.stand;
-      else return moves.split
-    }
-    else if(card1.value == 5) {
-      if(dealer.value >= 10) return moves.stand;
-      else return moves.double;
-    }
-    else if(card1.value == 4) {
-      if(dealer.value <= 4 || dealer.value >= 7) return moves.hit
-      else return moves.split;
-    }
-    else {
-      if(dealer.value >= 8) return moves.hit;
-      else return moves.split;
-    }
-  }
+  if (card1.card == card2.card) return pairs_solution_matrix[card1.value + ''][dealer.value + ''];
+  if (card1.value == 11) return soft_solution_matrix[card2.value + ''][dealer.value + ''];
+  if (card2.value == 11) return soft_solution_matrix[card1.value + ''][dealer.value + ''];
+  else return hard_solution_matrix[(card1.value + card2.value) + ''][dealer.value + ''];
+  // if(card1.card == card2.card) {
+  //   if (card1.card == 'A' || card1.card == '8') return moves.split;
+  //   else if (card1.value == 10) return moves.stand;
+  //   else if(card1.value == 9) {
+  //     if(dealer.value == 7 || dealer.value >= 10) return moves.stand;
+  //     else return moves.split
+  //   }
+  //   else if(card1.value == 7) {
+  //     if(dealer.value >= 8) return moves.stand;
+  //     else return moves.split;
+  //   }
+  //   else if(card1.value == 6) {
+  //     if(dealer.value >= 7) return moves.stand;
+  //     else return moves.split
+  //   }
+  //   else if(card1.value == 5) {
+  //     if(dealer.value >= 10) return moves.stand;
+  //     else return moves.double;
+  //   }
+  //   else if(card1.value == 4) {
+  //     if(dealer.value <= 4 || dealer.value >= 7) return moves.hit
+  //     else return moves.split;
+  //   }
+  //   else {
+  //     if(dealer.value >= 8) return moves.hit;
+  //     else return moves.split;
+  //   }
+  // }
 
-  else if(card1.card == 'A' || card2.card == 'A') {
-    let sum = card1.value + card2.value;
-    if(sum >= 19) return moves.stand;
-    else if(sum == 18) {
-      if(dealer.value == 2 || dealer.value == 7 || dealer.value == 8) return moves.stand;
-      else if(dealer.value >= 9) return moves.hit;
-      else return moves.double;
-    }
-    else if(sum == 17) {
-      if(dealer.value == 2 || dealer.value >= 7) return moves.hit;
-      else return moves.double;
-    }
-    else if(sum == 16 || sum == 15) {
-      if(dealer.value <= 3 || dealer.value >= 7) return moves.hit;
-      else return moves.double;
-    }
-    else{
-      if(dealer.value <= 4 || dealer.value >= 7) return moves.hit;
-      else return moves.double;
-    }
-  }
+  // else if(card1.card == 'A' || card2.card == 'A') {
+  //   let sum = card1.value + card2.value;
+  //   if(sum >= 19) return moves.stand;
+  //   else if(sum == 18) {
+  //     if(dealer.value == 2 || dealer.value == 7 || dealer.value == 8) return moves.stand;
+  //     else if(dealer.value >= 9) return moves.hit;
+  //     else return moves.double;
+  //   }
+  //   else if(sum == 17) {
+  //     if(dealer.value == 2 || dealer.value >= 7) return moves.hit;
+  //     else return moves.double;
+  //   }
+  //   else if(sum == 16 || sum == 15) {
+  //     if(dealer.value <= 3 || dealer.value >= 7) return moves.hit;
+  //     else return moves.double;
+  //   }
+  //   else{
+  //     if(dealer.value <= 4 || dealer.value >= 7) return moves.hit;
+  //     else return moves.double;
+  //   }
+  // }
 
-  else {
-    let sum = card1.value + card2.value;
-    if(sum >= 17) return moves.stand;
-    else if(sum <= 8) return moves.hit;
-    else if(sum >= 13) {
-      if(dealer.value >= 7) return moves.hit;
-      else return moves.stand;
-    }
-    else if(sum == 12) {
-      if(dealer.value <= 3 || dealer.value >= 7) return moves.hit;
-      else return moves.stand;
-    }
-    else if(sum == 11) {
-      if(dealer.value == 11) return moves.hit;
-      else return moves.double;
-    }
-    else if(sum == 10) {
-      if(dealer.value >= 10) return moves.hit;
-      else return moves.double;
-    }
-    else {
-      if(dealer.value == 2 || dealer.value >= 7) return moves.hit;
-      else return moves.double;
-    }
-  }
+  // else {
+  //   let sum = card1.value + card2.value;
+  //   if(sum >= 17) return moves.stand;
+  //   else if(sum <= 8) return moves.hit;
+  //   else if(sum >= 13) {
+  //     if(dealer.value >= 7) return moves.hit;
+  //     else return moves.stand;
+  //   }
+  //   else if(sum == 12) {
+  //     if(dealer.value <= 3 || dealer.value >= 7) return moves.hit;
+  //     else return moves.stand;
+  //   }
+  //   else if(sum == 11) {
+  //     if(dealer.value == 11) return moves.hit;
+  //     else return moves.double;
+  //   }
+  //   else if(sum == 10) {
+  //     if(dealer.value >= 10) return moves.hit;
+  //     else return moves.double;
+  //   }
+  //   else {
+  //     if(dealer.value == 2 || dealer.value >= 7) return moves.hit;
+  //     else return moves.double;
+  //   }
+  // }
 }
 
 function populate_dealer_text(dealer_text, card) {
@@ -204,21 +638,23 @@ function play_game() {
   dev_answer = document.querySelector('.dev-answer');
 
   dealer = get_random_card();
-  card1 = get_random_card();
+  if(aces_only) card1 = get_random_ace();
+  else card1 = get_random_card();
   card2 = get_random_card();
   if(card1.value + card2.value == 21) {
-    while(card1.value >= 10) card1 = get_random_card();
+    if(card1.value == 11) {card2 = get_random_non_10();}
+    else {card1 = get_random_non_10();}
   }
   if(pairs_only) card2 = card1;
-  if(aces_only) {
-    if(card1.value == 11) {
-      while(card2.value == 10) card2 = get_random_card();
-    } else if(card1.value == 10) {
-      if(card2.value == 11) {
-        while(card1.value == 10) card1 = get_random_card();
-      }
-    }
-  }
+  // if(aces_only) {
+  //   if(card1.value == 11) {
+  //     while(card2.value == 10) card2 = get_random_card();
+  //   } else if(card1.value == 10) {
+  //     if(card2.value == 11) {
+  //       while(card1.value == 10) card1 = get_random_card();
+  //     }
+  //   }
+  // }
 
   // dealer = cards[4];
   // card1 = cards[5];
@@ -267,6 +703,7 @@ function guess(move) {
     guessed_wrong = true;
     update_stats('lose');
   } else {
+    alert("Correct!");
     clear_table();
     if(!guessed_wrong) update_stats('win');
     else update_stats('lose');
@@ -275,14 +712,14 @@ function guess(move) {
 
 }
 
-function toggle_pairs_only() {
-  if(aces_only && !pairs_only) aces_only = !aces_only;
-  pairs_only = !pairs_only;
+function toggle_aces_only() {
+  // if(pairs_only && !aces_only) pairs_only = !pairs_only;
+  aces_only = !aces_only;
 }
 
-function toggle_aces_only() {
-  if(pairs_only && !aces_only) pairs_only = !pairs_only;
-  aces_only = !aces_only;
+function toggle_pairs_only() {
+  // if(aces_only && !pairs_only) aces_only = !aces_only;
+  pairs_only = !pairs_only;
 }
 
 function add_guess_button_eventlisteners() {
@@ -299,30 +736,26 @@ function add_guess_button_eventlisteners() {
   split_button.addEventListener('click', () => { guess(moves.split) })
 }
 
-function add_pairs_only_eventlistener() {
-  dom_pairs_only = document.getElementsByClassName('table__pairs')[0];
+function add_aces_only_eventlistener() {
   dom_aces_only = document.getElementsByClassName('table__aces')[0];
-  dom_pairs_only.addEventListener('click', () => {
-    toggle_pairs_only();
-    console.log(dom_pairs_only);
-    dom_pairs_only.classList.toggle('table__pairs--enabled');
-    if(aces_only) dom_aces_only.classList.toggle('table__aces--enable');
+  dom_aces_only.addEventListener('click', () => {
+    toggle_aces_only();
+    dom_aces_only.classList.toggle('table__aces--enabled');
   }, false);
 }
 
-function add_aces_only_eventlistener() {
-  dom_aces_only = document.getElementsByClassName('table__aces')[0];
+function add_pairs_only_eventlistener() {
   dom_pairs_only = document.getElementsByClassName('table__pairs')[0];
-  dom_aces_only.addEventListener('click', () => {
-    toggle_aces_only();
-    dom_aces_only.classList.toggle('table__aces--enable');
-    if(pairs_only) dom_pairs_only.classList.toggle('table__pairs--enabled');
+  dom_pairs_only.addEventListener('click', () => {
+    toggle_pairs_only();
+    dom_pairs_only.classList.toggle('table__pairs--enabled');
   }, false);
 }
+
 
 function main() {
   add_guess_button_eventlisteners();
-  add_pairs_only_eventlistener();
   add_aces_only_eventlistener();
+  add_pairs_only_eventlistener();
   play_game();
 }
