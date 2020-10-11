@@ -500,82 +500,6 @@ function get_correct_response(dealer, card1, card2) {
   if (card1.value == 11) return soft_solution_matrix[card2.value + ''][dealer.value + ''];
   if (card2.value == 11) return soft_solution_matrix[card1.value + ''][dealer.value + ''];
   else return hard_solution_matrix[(card1.value + card2.value) + ''][dealer.value + ''];
-  // if(card1.card == card2.card) {
-  //   if (card1.card == 'A' || card1.card == '8') return moves.split;
-  //   else if (card1.value == 10) return moves.stand;
-  //   else if(card1.value == 9) {
-  //     if(dealer.value == 7 || dealer.value >= 10) return moves.stand;
-  //     else return moves.split
-  //   }
-  //   else if(card1.value == 7) {
-  //     if(dealer.value >= 8) return moves.stand;
-  //     else return moves.split;
-  //   }
-  //   else if(card1.value == 6) {
-  //     if(dealer.value >= 7) return moves.stand;
-  //     else return moves.split
-  //   }
-  //   else if(card1.value == 5) {
-  //     if(dealer.value >= 10) return moves.stand;
-  //     else return moves.double;
-  //   }
-  //   else if(card1.value == 4) {
-  //     if(dealer.value <= 4 || dealer.value >= 7) return moves.hit
-  //     else return moves.split;
-  //   }
-  //   else {
-  //     if(dealer.value >= 8) return moves.hit;
-  //     else return moves.split;
-  //   }
-  // }
-
-  // else if(card1.card == 'A' || card2.card == 'A') {
-  //   let sum = card1.value + card2.value;
-  //   if(sum >= 19) return moves.stand;
-  //   else if(sum == 18) {
-  //     if(dealer.value == 2 || dealer.value == 7 || dealer.value == 8) return moves.stand;
-  //     else if(dealer.value >= 9) return moves.hit;
-  //     else return moves.double;
-  //   }
-  //   else if(sum == 17) {
-  //     if(dealer.value == 2 || dealer.value >= 7) return moves.hit;
-  //     else return moves.double;
-  //   }
-  //   else if(sum == 16 || sum == 15) {
-  //     if(dealer.value <= 3 || dealer.value >= 7) return moves.hit;
-  //     else return moves.double;
-  //   }
-  //   else{
-  //     if(dealer.value <= 4 || dealer.value >= 7) return moves.hit;
-  //     else return moves.double;
-  //   }
-  // }
-
-  // else {
-  //   let sum = card1.value + card2.value;
-  //   if(sum >= 17) return moves.stand;
-  //   else if(sum <= 8) return moves.hit;
-  //   else if(sum >= 13) {
-  //     if(dealer.value >= 7) return moves.hit;
-  //     else return moves.stand;
-  //   }
-  //   else if(sum == 12) {
-  //     if(dealer.value <= 3 || dealer.value >= 7) return moves.hit;
-  //     else return moves.stand;
-  //   }
-  //   else if(sum == 11) {
-  //     if(dealer.value == 11) return moves.hit;
-  //     else return moves.double;
-  //   }
-  //   else if(sum == 10) {
-  //     if(dealer.value >= 10) return moves.hit;
-  //     else return moves.double;
-  //   }
-  //   else {
-  //     if(dealer.value == 2 || dealer.value >= 7) return moves.hit;
-  //     else return moves.double;
-  //   }
-  // }
 }
 
 function populate_dealer_text(dealer_text, card) {
@@ -646,19 +570,6 @@ function play_game() {
     else {card1 = get_random_non_10();}
   }
   if(pairs_only) card2 = card1;
-  // if(aces_only) {
-  //   if(card1.value == 11) {
-  //     while(card2.value == 10) card2 = get_random_card();
-  //   } else if(card1.value == 10) {
-  //     if(card2.value == 11) {
-  //       while(card1.value == 10) card1 = get_random_card();
-  //     }
-  //   }
-  // }
-
-  // dealer = cards[4];
-  // card1 = cards[5];
-  // card2 = cards[0];
 
   if(!ran) {
     facedown_img = document.createElement('img');
@@ -713,12 +624,10 @@ function guess(move) {
 }
 
 function toggle_aces_only() {
-  // if(pairs_only && !aces_only) pairs_only = !pairs_only;
   aces_only = !aces_only;
 }
 
 function toggle_pairs_only() {
-  // if(aces_only && !pairs_only) aces_only = !aces_only;
   pairs_only = !pairs_only;
 }
 
