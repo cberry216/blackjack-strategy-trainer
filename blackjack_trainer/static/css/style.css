@@ -8,70 +8,79 @@ body {
 	margin: 0;
 }
 
-.dev_welcome {
+.welcome {
+	position: relative;
 	margin-top: 10vh;
+	left: -10%;
 	width: 120%;
-	height: 40vh;
-	background-image: url('/static/img/welcome_banner.jpg');
-	background-position: center;
-  background-repeat: no-repeat;
-	background-size: cover;
-	/* filter: blur(8px);
-	-webkit-filter: blur(8px);
-	box-sizing: border-box; */
+	height: 50vh;
+	overflow: hidden;
+
+	font-family: 'Commissioner', sans-serif;
+
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 3fr 1fr 1fr;
+	justify-items: center;
+	align-items: center;
 }
 
-.welcome {
-	display: none;
-	margin-top: 15%;
-	z-index: 10;
-
-	font-family: 'Bodoni MT Black', serif;
-	text-align: center;
+.welcome__banner {
+	position: absolute;
+	top: 0;
+	left: -10%;
+	width: 120%;
+	height: 50vh;
+	object-fit: cover;
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+	z-index: -1;
 }
 
 .welcome__title {
-	margin: 30px 0;
-	color: white;
+	font-size: 5vw;
+	text-shadow: 0.5px 0.5px 0 white;
+	/* , -0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px -0.5px 0 white; */
 
-	font-size: 3em;
-	letter-spacing: -2px;
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
 }
 
 .welcome__subtitle {
-	margin: 30px 0;
-	color: white;
-
-	font-size: 0.8em;
-}
-
-.welcome__enter {
-	margin: 50px 0;
-	padding: 5px 10px;
-	width: 10vw;
-	color: white;
-	border: 1px solid white;
-	border-radius: 3px;
+	/* color: red; */
 
 	font-size: 2em;
+	text-shadow: 0.5px 0.5px 0 white;
+	/* , -0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px -0.5px 0 white; */
+
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
 }
 
-.welcome__enter:hover {
-	background-color: #c01818;
-	color: black;
-
+.welcome__subtitle span {
+	color: green;
 	cursor: pointer;
 }
 
-.welcome__strategy {
-	color: #c01818;
-	text-decoration: underline;
+.welcome__button {
+	padding: 15px;
+	border: 1px solid white;
+	border-radius: 3px;
+	transition: background-color 1s ease, color 1s ease;
 
-	cursor: pointer;
+	text-decoration: none;
+
+	grid-column: 1 / 2;
+	grid-row: 3 / 4;
 }
 
-.welcome__strategy:hover {
+.welcome__button:any-link {
+	color: white;
+}
+
+.welcome__button:hover {
 	color: black;
+	background-color: white;
 }
 
 .dim {

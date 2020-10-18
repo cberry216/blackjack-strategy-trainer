@@ -4,13 +4,11 @@
 
 {% block content %}
 <div class="welcome">
-  <h1 class="welcome__title">BLACKJACK BASIC STRATEGY TRAINER</h1>
-  <h3 class="welcome__subtitle">USE THIS TOOL TO HELP MEMORIZE THE <span class="welcome__strategy">BLACKJACK BASIC STRATEGY TABLE</span>.</h3>
-  <a class="welcome__enter" href="{% url 'trainer' %}">START</a>
+  <img src="{% static 'img/welcome_banner.jpg' %}" alt="banner" class="welcome__banner">
+  <div class="welcome__title">♥ BLACKJACK ♠ STRATEGY ♣ TRAINER ♦</div>
+  <div class="welcome__subtitle">Learn How to Play Blackjack with <span>50/50</span> Odds.</div>
+  <a class="welcome__button" href="{% url 'trainer' %}">START</a>
 </div>
-<div class="dev_welcome">
 
-</div>
-<a href="{% url 'trainer' %}">START</a>
 {% include "guide.html" %}
 {% endblock content %}
