@@ -1,5 +1,5 @@
 function bjbs_modal() {
-  let bjbs_button = document.querySelector('.welcome__strategy');
+  let bjbs_button = document.querySelector('.welcome__subtitle span');
   if (!(bjbs_button)) bjbs_button = document.querySelector('.table__bjbs');
   let bjbs_close = document.querySelector('.bjbs__close');
   let dim_screen = document.querySelector('.dim');
