@@ -525,31 +525,47 @@ function clear_table() {
   dealer_cards = document.querySelector('.dealer__cards');
 
   dealer_card = document.querySelector('#dealer_img');
+  facedown_card = document.querySelector('#facedown');
   user_card1 = document.querySelector('#card1_img');
   user_card2 = document.querySelector('#card2_img');
 
-  user_cards.removeChild(user_card1);
-  user_cards.removeChild(user_card2);
-  dealer_cards.removeChild(dealer_card);
+  if (dealer_card && facedown_card && user_card1 && user_card2) {
+    dealer_card.classList.remove('card--dealt');
+    facedown_card.classList.remove('card--dealt');
+    user_card1.classList.remove('card--dealt');
+    user_card2.classList.remove('card--dealt');
+
+    setTimeout(() => {
+      user_cards.removeChild(user_card1);
+      user_cards.removeChild(user_card2);
+      dealer_cards.removeChild(dealer_card);
+      dealer_cards.removeChild(facedown_card);
+    }, 250);
+  }
 }
 
-function update_stats(win_or_lose) {
+function update_stats(win_or_lose, guesses) {
   correct_guesses = document.querySelector('.stats__correct');
   total_guesses = document.querySelector('.stats__total');
   if(win_or_lose == 'win') {
-    new_correct_guesses = Number.parseInt(correct_guesses.innerHTML) + 1;
-    correct_guesses.innerHTML = new_correct_guesses;
+    if (guesses == 1) {
+      new_correct_guesses = Number.parseInt(correct_guesses.innerHTML) + 1;
+      correct_guesses.innerHTML = new_correct_guesses;
+    }
+    new_total_guesses = Number.parseInt(total_guesses.innerHTML) + 1;
+    total_guesses.innerHTML = new_total_guesses;
   }
-  new_total_guesses = Number.parseInt(total_guesses.innerHTML) + 1;
-  total_guesses.innerHTML = new_total_guesses;
 }
 
 let ran = false;
 let guessed_wrong = false;
+let num_guesses = 0;
 let pairs_only = false;
 let aces_only = false;
 
 function play_game() {
+  clear_table();
+
   console.log('ran:\t' + ran);
   console.log('guessed_wrong:\t' + guessed_wrong);
   console.log('pairs_only:\t' + pairs_only);
@@ -571,54 +587,99 @@ function play_game() {
   }
   if(pairs_only) card2 = card1;
 
-  if(!ran) {
-    facedown_img = document.createElement('img');
-    facedown_img.src = '/static/img/cards/facedown.png'
-    facedown_img.classList.add('card')
-    facedown_img.id = "facedown";
-  }
+  facedown_img = document.createElement('img');
+  facedown_img.src = '/static/img/cards/facedown.png'
+  facedown_img.classList.add('card', 'card--dealer');
+  facedown_img.id = "facedown";
 
   dealer_img = document.createElement('img');
   dealer_img.src = dealer.src;
-  dealer_img.classList.add('card');
+  dealer_img.classList.add('card', 'card--dealer');
   dealer_img.id = "dealer_img";
 
   card1_img = document.createElement('img');
   card1_img.src = card1.src;
-  card1_img.classList.add('card');
+  card1_img.classList.add('card', 'card--user');
   card1_img.id = "card1_img";
 
   card2_img = document.createElement('img');
   card2_img.src = card2.src;
-  card2_img.classList.add('card');
+  card2_img.classList.add('card', 'card--user');
   card2_img.id = "card2_img";
 
 
-  if(!ran) dealer_cards.appendChild(facedown_img);
-  user_cards.appendChild(card1_img);
-  dealer_cards.appendChild(dealer_img);
-  user_cards.appendChild(card2_img);
+  
+  setTimeout(() => {
+    dealer_cards.appendChild(facedown_img);
+    user_cards.appendChild(card1_img);
+    dealer_cards.appendChild(dealer_img);
+    user_cards.appendChild(card2_img);
 
-  populate_dealer_text(dealer_description, dealer);
-  populate_user_text(user_description, card1, card2);
+    
+    setTimeout(() => {
+      facedown_img.classList.add('card--dealt');
+      dealer_img.classList.add('card--dealt');
+      card1_img.classList.add('card--dealt');
+      card2_img.classList.add('card--dealt');
+
+      populate_dealer_text(dealer_description, dealer);
+      populate_user_text(user_description, card1, card2);
+    }, 500)
+
+  }, 500)
+  
 
   correct_answer = get_correct_response(dealer, card1, card2);
   dev_answer.innerHTML = correct_answer;
   ran = true;
 }
 
+function show_answer(isCorrect) {
+  // Create answer div
+  let answer = document.createElement('div');
+  answer.classList.add('answer');
+
+  // Add correct/incorrect text & class
+  if(isCorrect) {
+    answer.innerHTML = "+ Correct!";
+    answer.classList.add('answer--correct');
+  } else {
+    answer.innerHTML = "- Incorrect!";
+    answer.classList.add('answer--incorrect');
+  }
+
+  // Append to body
+  document.body.appendChild(answer);
+
+  // Trigger animation
+  setTimeout(() => {
+    answer.classList.add('answer--show');
+  }, 10);
+
+  // Remove answer after 1 second
+  setTimeout(() => {
+    answer.classList.remove('answer--show');
+    setTimeout(() => {
+      document.body.removeChild(answer);
+    }, 500);
+  }, 1000);
+}
+
 function guess(move) {
+  num_guesses++;
   let correct_answer = document.querySelector('.dev-answer').innerHTML;
   if (move != correct_answer) {
-    alert("Incorrect");
-    guessed_wrong = true;
-    update_stats('lose');
+    // alert("Incorrect");
+    show_answer(false);
+    update_stats('lose', num_guesses);
   } else {
-    alert("Correct!");
-    clear_table();
-    if(!guessed_wrong) update_stats('win');
-    else update_stats('lose');
-    play_game();
+    // alert("Correct!");
+    show_answer(true);
+    update_stats('win', num_guesses);
+    num_guesses = 0;
+    setTimeout(() => {
+      play_game();
+    }, 500)
   }
 
 }
@@ -650,6 +711,7 @@ function add_aces_only_eventlistener() {
   dom_aces_only.addEventListener('click', () => {
     toggle_aces_only();
     dom_aces_only.classList.toggle('table__aces--enabled');
+    play_game();
   }, false);
 }
 
@@ -658,6 +720,7 @@ function add_pairs_only_eventlistener() {
   dom_pairs_only.addEventListener('click', () => {
     toggle_pairs_only();
     dom_pairs_only.classList.toggle('table__pairs--enabled');
+    play_game();
   }, false);
 }
 
